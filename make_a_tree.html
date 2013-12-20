@@ -1,0 +1,53 @@
+<html>
+	<head>
+		<title>Make a Tree</title>
+	</head>
+	<body>
+		<h1>&#9731; Make a Tree &#9731;</h1>
+		<button id="makeTree" style="display:block;">Make a Tree</button>
+		<canvas id="canvas" width="1024" height="500" style="border:solid thin;"></canvas>
+		<script>
+		var c = document.getElementById('canvas');
+		var ctx = c.getContext('2d');
+		function recursiveTree(startX, startY, trunkWidth, level) {
+		    if (level < 10) {
+		      var dX = 100 / (level + 1);
+		      var dY = 200 / (level + 1);
+
+		      var lX = startX - Math.random() * dX;
+		      var lY = startY - Math.random() * dY;
+
+		      var rX = startX + Math.random() * dX;
+		      var rY = startY - Math.random() * dY;
+
+		      // draw left
+		      ctx.beginPath();
+		      ctx.moveTo(startX  - trunkWidth / 4, startY);
+		      ctx.lineTo(lX, lY);
+		      ctx.lineWidth = trunkWidth;
+		      ctx.lineCap = 'round';
+		      ctx.stroke();
+
+		      // draw right
+		      ctx.beginPath();
+		      ctx.moveTo(startX + trunkWidth / 4, startY);
+		      ctx.lineTo(rX, rY);
+		      ctx.lineWidth = trunkWidth;
+		      ctx.lineCap = 'round';
+		      ctx.stroke();
+
+		      recursiveTree(lX, lY, trunkWidth * 0.65, level + 1);
+		      recursiveTree(rX, rY, trunkWidth * 0.65, level + 1);
+		    }
+		}
+
+		window.onload = function() {
+			var btn = document.getElementById('makeTree');
+			btn.addEventListener('click', function() {
+				recursiveTree(c.width / 2, c.height, 20, 0);
+				btn.innerHTML = 'Add More Tree';
+			});
+		}
+		</script>
+	</body>
+</html>

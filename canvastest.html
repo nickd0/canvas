@@ -1,0 +1,343 @@
+<!DOCTYPE>
+<html>
+<head>
+	<style type="text/css">
+	#info {
+		/*font-family: 'Helvetica', sans-serif;*/
+		position: absolute;
+		background-color: rgba(255,255,255,0.7);
+		z-index: 100;
+		padding: 20px;
+		height: 290px;
+		overflow: hidden;
+		border: solid thin;
+	}
+	#minimize {
+		position: absolute;
+		top: 0;
+		right: 0;
+		border: solid thin;
+	}
+	#symbol-select {
+		font-size: 1em;
+	}
+	.symbol {
+		position: absolute;
+		font-size: 2em;
+	}
+	</style>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+</head>
+<body>
+	<div id="info">
+		<h1>&#9731; Cool Drawing Thing &#9731;</h1>
+		 <p>&amp;</p>
+		<p>Command (&#8984;) + Click to establish "vanishing point"</p>
+		<p>Click and drag to draw lines</p>
+		<p>Shift + Click and drag to make circles</p>
+		<p>Ctrl + Click to add symbols after choosing one below</p>
+		<select id="symbol-select">
+			<option selected disabled>Select a Value</option>
+			<option value='9728'>&#9728;</option>
+			<option value='9729'>&#9729;</option>
+			<option value='9730'>&#9730;</option>
+			<option value='9731'>&#9731;</option>
+			<option value='9732'>&#9732;</option>
+			<option value='9733'>&#9733;</option>
+			<option value='9734'>&#9734;</option>
+			<option value='9735'>&#9735;</option>
+			<option value='9736'>&#9736;</option>
+			<option value='9737'>&#9737;</option>
+			<option value='9738'>&#9738;</option>
+			<option value='9739'>&#9739;</option>
+			<option value='9740'>&#9740;</option>
+			<option value='9741'>&#9741;</option>
+			<option value='9742'>&#9742;</option>
+			<option value='9743'>&#9743;</option>
+			<option value='9744'>&#9744;</option>
+			<option value='9745'>&#9745;</option>
+			<option value='9746'>&#9746;</option>
+			<option value='9747'>&#9747;</option>
+			<option value='9748'>&#9748;</option>
+			<option value='9749'>&#9749;</option>
+			<option value='9750'>&#9750;</option>
+			<option value='9751'>&#9751;</option>
+			<option value='9752'>&#9752;</option>
+			<option value='9753'>&#9753;</option>
+			<option value='9754'>&#9754;</option>
+			<option value='9755'>&#9755;</option>
+			<option value='9756'>&#9756;</option>
+			<option value='9757'>&#9757;</option>
+			<option value='9758'>&#9758;</option>
+			<option value='9759'>&#9759;</option>
+			<option value='9760'>&#9760;</option>
+			<option value='9761'>&#9761;</option>
+			<option value='9762'>&#9762;</option>
+			<option value='9763'>&#9763;</option>
+			<option value='9764'>&#9764;</option>
+			<option value='9765'>&#9765;</option>
+			<option value='9766'>&#9766;</option>
+			<option value='9767'>&#9767;</option>
+			<option value='9768'>&#9768;</option>
+			<option value='9769'>&#9769;</option>
+			<option value='9770'>&#9770;</option>
+			<option value='9771'>&#9771;</option>
+			<option value='9772'>&#9772;</option>
+			<option value='9773'>&#9773;</option>
+			<option value='9774'>&#9774;</option>
+			<option value='9775'>&#9775;</option>
+			<option value='9776'>&#9776;</option>
+			<option value='9777'>&#9777;</option>
+			<option value='9778'>&#9778;</option>
+			<option value='9779'>&#9779;</option>
+			<option value='9780'>&#9780;</option>
+			<option value='9781'>&#9781;</option>
+			<option value='9782'>&#9782;</option>
+			<option value='9783'>&#9783;</option>
+			<option value='9784'>&#9784;</option>
+			<option value='9785'>&#9785;</option>
+			<option value='9786'>&#9786;</option>
+			<option value='9787'>&#9787;</option>
+			<option value='9788'>&#9788;</option>
+			<option value='9789'>&#9789;</option>
+			<option value='9790'>&#9790;</option>
+			<option value='9791'>&#9791;</option>
+			<option value='9792'>&#9792;</option>
+			<option value='9793'>&#9793;</option>
+			<option value='9794'>&#9794;</option>
+			<option value='9795'>&#9795;</option>
+			<option value='9796'>&#9796;</option>
+			<option value='9797'>&#9797;</option>
+			<option value='9798'>&#9798;</option>
+			<option value='9799'>&#9799;</option>
+			<option value='9800'>&#9800;</option>
+			<option value='9801'>&#9801;</option>
+			<option value='9802'>&#9802;</option>
+			<option value='9803'>&#9803;</option>
+			<option value='9804'>&#9804;</option>
+			<option value='9805'>&#9805;</option>
+			<option value='9806'>&#9806;</option>
+			<option value='9807'>&#9807;</option>
+			<option value='9808'>&#9808;</option>
+			<option value='9809'>&#9809;</option>
+			<option value='9810'>&#9810;</option>
+			<option value='9811'>&#9811;</option>
+			<option value='9812'>&#9812;</option>
+			<option value='9813'>&#9813;</option>
+			<option value='9814'>&#9814;</option>
+			<option value='9815'>&#9815;</option>
+			<option value='9816'>&#9816;</option>
+			<option value='9817'>&#9817;</option>
+			<option value='9818'>&#9818;</option>
+			<option value='9819'>&#9819;</option>
+			<option value='9820'>&#9820;</option>
+			<option value='9821'>&#9821;</option>
+			<option value='9822'>&#9822;</option>
+			<option value='9823'>&#9823;</option>
+			<option value='9824'>&#9824;</option>
+			<option value='9825'>&#9825;</option>
+			<option value='9826'>&#9826;</option>
+			<option value='9827'>&#9827;</option>
+			<option value='9828'>&#9828;</option>
+			<option value='9829'>&#9829;</option>
+			<option value='9830'>&#9830;</option>
+			<option value='9831'>&#9831;</option>
+			<option value='9832'>&#9832;</option>
+			<option value='9833'>&#9833;</option>
+			<option value='9834'>&#9834;</option>
+			<option value='9835'>&#9835;</option>
+			<option value='9836'>&#9836;</option>
+			<option value='9837'>&#9837;</option>
+			<option value='9838'>&#9838;</option>
+			<option value='9839'>&#9839;</option>
+			<option value='9840'>&#9840;</option>
+			<option value='9841'>&#9841;</option>
+			<option value='9842'>&#9842;</option>
+			<option value='9843'>&#9843;</option>
+			<option value='9844'>&#9844;</option>
+			<option value='9845'>&#9845;</option>
+			<option value='9846'>&#9846;</option>
+			<option value='9847'>&#9847;</option>
+			<option value='9848'>&#9848;</option>
+			<option value='9849'>&#9849;</option>
+			<option value='9850'>&#9850;</option>
+			<option value='9851'>&#9851;</option>
+			<option value='9852'>&#9852;</option>
+			<option value='9853'>&#9853;</option>
+			<option value='9854'>&#9854;</option>
+			<option value='9855'>&#9855;</option>
+			<option value='9856'>&#9856;</option>
+			<option value='9857'>&#9857;</option>
+			<option value='9858'>&#9858;</option>
+			<option value='9859'>&#9859;</option>
+			<option value='9860'>&#9860;</option>
+			<option value='9861'>&#9861;</option>
+			<option value='9862'>&#9862;</option>
+			<option value='9863'>&#9863;</option>
+			<option value='9864'>&#9864;</option>
+			<option value='9865'>&#9865;</option>
+			<option value='9866'>&#9866;</option>
+			<option value='9867'>&#9867;</option>
+			<option value='9868'>&#9868;</option>
+			<option value='9869'>&#9869;</option>
+			<option value='9870'>&#9870;</option>
+			<option value='9871'>&#9871;</option>
+			<option value='9872'>&#9872;</option>
+			<option value='9873'>&#9873;</option>
+			<option value='9874'>&#9874;</option>
+			<option value='9875'>&#9875;</option>
+			<option value='9876'>&#9876;</option>
+			<option value='9877'>&#9877;</option>
+			<option value='9878'>&#9878;</option>
+			<option value='9879'>&#9879;</option>
+			<option value='9880'>&#9880;</option>
+			<option value='9881'>&#9881;</option>
+			<option value='9882'>&#9882;</option>
+			<option value='9883'>&#9883;</option>
+			<option value='9884'>&#9884;</option>
+			<option value='9885'>&#9885;</option>
+			<option value='9886'>&#9886;</option>
+			<option value='9887'>&#9887;</option>
+		</select>
+		<div id="minimize">&#8212;</div>
+	</div>
+	<canvas id="canvas" width="1000" height="1000"></canvas>
+	<script type="text/javascript">
+		var canvas = document.getElementById('canvas');
+		var ctx = canvas.getContext('2d');
+		var initX = initY = 0;
+		var shift = 0;
+		var startX = 0, startY = 0;
+		var selectEl = document.getElementById('symbol-select');
+		var symbol = 0;
+		var body = document.getElementsByTagName('body');
+		var min = document.getElementById('minimize');
+		var info = document.getElementById('info');
+		var minimized = 0;
+
+		function draw(x,y) {
+		  if (canvas.getContext){
+		    ctx.beginPath();
+		    ctx.moveTo(startX,startY);
+		    ctx.lineTo(x,y);
+		    ctx.stroke();
+		  }
+		}
+		function drawCircle(x,y,r,style) {
+			if (!r) r = 10
+			ctx.beginPath();
+			ctx.arc(x-10, y-10, Math.abs(r), 0, 2*Math.PI, false);
+			if (style) {
+				ctx.strokeStyle(style);
+			}
+			ctx.stroke();
+		}
+		function sonar(x,y) {
+			var rad = 5;
+			setTimeout(drawCircle(x,y,r))	
+		}
+		function clear() {
+			ctx.save();
+		    // ctx.setTransform(1, 0, 0, 1, 0, 0);
+			// ctx.clearRect(0, 0, canvas.width, canvas.height);
+			ctx.restore();
+		}
+		var counter = 0;
+		var startX;
+		function recursive(x,y,x2,y2) {
+			if (!startX) startX = x;
+			var xL = x2 / 2, xR = x2 * 1.5;
+			ctx.beginPath();
+			ctx.moveTo(x,y);
+			ctx.lineTo(xL,y2);
+			ctx.moveTo(x,y);
+			ctx.lineTo(xR,y2);
+			ctx.stroke();
+			if (counter < 10) {
+				setTimeout(function() {
+					recursive(xL,y2,xL,y2 / 2);
+					recursive(xR,y2,xR,y2 / 2);
+					counter++;
+				}, 100);
+			}
+		}
+
+		function recursiveSq(x,y,l) {
+		if (counter < 40) {
+				ctx.beginPath();
+				var cornerX =  x + l / 2, cornerY = y + l / 2;
+				ctx.moveTo(cornerX, cornerY);
+				ctx.lineTo(cornerX, cornerY - l);
+				ctx.lineTo(cornerX - l, cornerY - l);
+				ctx.lineTo(cornerX - l, cornerY);
+				ctx.lineTo(cornerX, cornerY);
+				ctx.fill();
+				counter++;
+				recursiveSq(cornerX + l / 4, cornerY + l / 4, l / 2);
+				recursiveSq(cornerX + l / 4, (cornerY - l) - l / 4, l / 2);
+				recursiveSq((cornerX - l) - l / 4, (cornerY - l) - l / 4, l / 2);
+				recursiveSq((cornerX - l) - l / 4, cornerY + l / 4, l / 2);
+			}
+		}
+
+		var click = 0;
+		document.addEventListener('mousedown', function(e) {
+			console.log(e);
+			if (e.shiftKey) {
+				initX = e.clientX;
+				initY = e.clientY;
+				drawCircle(e.clientX, e.clientY);
+			} else if (e.metaKey) {
+				startX = e.clientX;
+				startY = e.clientY;
+			} else if (e.altKey) {
+				var div = document.createElement('div');
+				div.className = "symbol";
+				var sym = "\\" + "u" + symbol;
+				var content = document.createTextNode(String.fromCharCode(symbol));
+				div.appendChild(content);
+				div.style.left = e.pageX;
+				div.style.top = e.pageY;
+				body[0].appendChild(div);
+				return false;
+			} else {
+				click = 1;
+			}
+		});
+		document.addEventListener('mouseup', function() {
+			click = 0;
+		});
+		document.addEventListener('mousemove', function(e) {
+			if (e.which === 1 && e.shiftKey) {
+				e.preventDefault();
+				drawCircle(initX, initY, (e.clientX - initX));
+			}
+			else if (e.which === 1) {
+				draw(e.clientX, e.clientY);
+			}
+		});
+		document.addEventListener('keydown', function(e) {
+			if (e.which === 16) shift = 1;
+			if (e.which === 8) {
+				e.preventDefault();
+				ctx.clearRect(0,0,canvas.width,canvas.height);
+			}
+		});
+		document.addEventListener('keyup', function(e) {
+			if (e.which === 16) shift = 0;
+		});
+		selectEl.addEventListener('change', function() {
+			symbol = this.value;
+		});
+		min.addEventListener('click', function() {
+			if (minimized === 0) {
+				info.style.height = 5;
+				minimized = 1;
+			} else {
+				info.style.height = 290;
+				minimized = 0;
+			}
+		});
+	</script>
+</body>
+</html>

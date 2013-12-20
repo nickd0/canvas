@@ -1,0 +1,138 @@
+<html>
+  <head>
+    <title>Fractals</title>
+  </head>
+  <body>
+    <h1>Fractals!</h1>
+    <canvas id='fractal-canvas' height='1024px' width='1024px' style='border: 1px solid black;'></canvas>
+<script>
+// Your Results:
+// Reload the page with the different scale ratios
+// given below. How many squares does each one create?
+//
+// 0.25 -> ???? squares
+// 0.30 -> ???? squares
+// 0.35 -> ???? squares
+// 0.40 -> ???? squares
+// 0.45 -> ???? squares
+// 0.50 -> ???? squares
+// 0.55 -> ???? squares
+// 0.60 -> ???? squares
+
+//STATIC GLOBAL VARIABLES
+var FRACTAL_SCALE=0.5;
+var BASE_CASE_DIM = 60;
+var ANGLE_DEG = 80;
+var ANGLE_RAD = (ANGLE_DEG / 180) * Math.PI;
+var BASE_CASE_LEN = 5;
+
+//NON-STATIC GLOBAL VARIABLES
+var ctx;
+var square_counter = 0;
+var counter = 0;
+
+//FUNCTION DEFINITIONS
+function draw_line(x1, y1, x2, y2){
+  ctx.moveTo(x1, y1);
+  ctx.lineTo(x2, y2);
+  ctx.stroke();
+}
+
+function draw_square(left_x, top_y, dim){
+  square_counter += 1;
+  var right_x = left_x + dim;
+  var bottom_y = top_y + dim;
+
+  // Draw top line
+  draw_line(left_x, top_y, right_x, top_y);
+  // Draw right line
+  draw_line(right_x, top_y, right_x, bottom_y);
+  // Draw bottom line
+  draw_line(left_x, bottom_y, right_x, bottom_y);
+  // Draw left line
+  draw_line(left_x, top_y, left_x, bottom_y);
+}
+
+function recursive_square(left_x, top_y, dim) {
+  // draw a square according to those dimensions
+  draw_square(left_x, top_y, dim);
+  // console.log('square draw');
+
+  // if our dimension was more than 1
+  if (dim > BASE_CASE_DIM) {
+    // halve the dimensions and
+    var new_dim = dim*FRACTAL_SCALE;
+
+    counter++;
+
+    // call recursive square function again, with new dimension and same coordinates
+    recursive_square(left_x, top_y, new_dim);
+
+    // call recursive square function again, with new dimension and coordinates of
+    // right side (old left coordinate plus old dimension) minus new dimension and
+    // bottom side (old top coordinate plus old dimension) minus new dimension
+    recursive_square(left_x + dim - new_dim, top_y + dim - new_dim, new_dim);
+  }
+}
+
+  function recursive_tree(x,y,l,ang) {
+    var deltaX = Math.sin(ANGLE_RAD) * (l * FRACTAL_SCALE);
+    var deltaY = Math.cos(ANGLE_RAD) * (l * FRACTAL_SCALE);
+    draw_line(x,y,x - deltaX,y - l - deltaY);
+    draw_line(x,y,x + deltaX,y - l - deltaY);
+    if (l > BASE_CASE_LEN) {
+      recursive_tree(x - deltaX, y - l - deltaY, l * FRACTAL_SCALE, ANGLE_RAD);
+      recursive_tree(x + deltaX, y - l - deltaY, l * FRACTAL_SCALE);
+    }
+  }
+
+  function recursive_tree_2(startX, startY, trunkWidth, level) {
+    if (level < 10) {
+      var dX = 100 / (level + 1);
+      var dY = 200 / (level + 1);
+
+      var lX = startX - Math.random() * dX;
+      var lY = startY - Math.random() * dY;
+
+      var rX = startX + Math.random() * dX;
+      var rY = startY - Math.random() * dY;
+
+      // draw left
+      ctx.beginPath();
+      ctx.moveTo(startX  - trunkWidth / 4, startY);
+      ctx.lineTo(lX, lY);
+      ctx.lineWidth = trunkWidth;
+      ctx.lineCap = 'round';
+      ctx.stroke();
+
+      // draw right
+      ctx.beginPath();
+      ctx.moveTo(startX + trunkWidth / 4, startY);
+      ctx.lineTo(rX, rY);
+      ctx.lineWidth = trunkWidth;
+      ctx.lineCap = 'round';
+      ctx.stroke();
+
+      recursive_tree_2(lX, lY, trunkWidth * 0.6, level + 1);
+      recursive_tree_2(rX, rY, trunkWidth * 0.6, level + 1);
+    }
+  }
+
+// DOM READY EVENTS
+
+window.onload = function() {
+  // Find our canvas
+  var c = document.getElementById("fractal-canvas");
+  // Set its drawing context to two-dimensional
+  ctx=c.getContext("2d");
+  ctx.fillStyle="444444";
+
+  // recursive_square(0, 0, 1024);
+  // draw_line(512, 1024, 512, 1024 - 100 );
+  // recursive_tree(512, 1024 - 100, 100,0);
+  recursive_tree_2(c.width / 2, c.height, 20, 0);
+
+}
+</script>
+  </body>
+</html>
